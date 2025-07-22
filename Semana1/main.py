@@ -1,22 +1,21 @@
 # Funciones:
 # Función Suma:
-
-def funcDummy():
+def func_dummy():
     print("hola")
 
-def sumaFunc(num1, num2):
+def suma_func(num1, num2):
     return num1 + num2
 
-def restaFunc(num1, num2):
+def resta_func(num1, num2):
     return num1 - num2
 
-def divisionFunc(num1, num2):
+def division_func(num1, num2):
     return num1 / num2
 
-def multiplicacionFunc(num1, num2):
+def multiplicacion_func(num1, num2):
     return num1 * num2
 
-def Menu():
+def menu():
     print('¿Qué operación quieres hacer?')
     print('1. Suma')
     print('2. Resta')
@@ -40,17 +39,17 @@ if  __name__ == '__main__':
     comentario
     multilínea.
     '''
-
+    
     # Variables:
 
-    stringLargo = '''
+    string_largo = '''
     soy
     un
     string
     largo
     '''
 
-    print(stringLargo)
+    print(string_largo)
 
     a = -1 # entero
     b = 3 # entero
@@ -135,43 +134,43 @@ if  __name__ == '__main__':
         contador+=1
     
     # FUNCIONES
-    print('SUMA', sumaFunc(1,22))
-    print('RESTA', restaFunc(7,1))
-    print('MULTIPLICACIÓN', multiplicacionFunc(4,4))
-    print('DIVISIÓN', divisionFunc(6,2))
+    print('SUMA', suma_func(1,22))
+    print('RESTA', resta_func(7,1))
+    print('MULTIPLICACIÓN', multiplicacion_func(4,4))
+    print('DIVISIÓN', division_func(6,2))
 
-    funcDummy()
+    func_dummy()
 
     # Saltos de Línea:
     print()
     print('\n')
 
     # Listas:
-    listaEjemplo = [1,2,3]
-    listaEjemplo2 = []
-    listaEjemplo2 = [1, "a", True]
+    lista_ejemplo = [1,2,3]
+    lista_ejemplo2 = []
+    lista_ejemplo2 = [1, "a", True]
 
-    for elemento in listaEjemplo:
+    for elemento in lista_ejemplo:
         print(elemento)
 
-    for i in range(0, len(listaEjemplo)):
-        print(listaEjemplo[i])
+    for i in range(0, len(lista_ejemplo)):
+        print(lista_ejemplo[i])
 
-    opcionSeleccionada = Menu()
-    while opcionSeleccionada != 5:
+    opcion_seleccionada = menu()
+    while opcion_seleccionada != '5':
         num1 = int(input('Ingrese el primer número: '))
         num2 = int(input('Ingrese el segundo número: '))
 
-        if opcionSeleccionada == '1':
-            print(" La suma es: "+ str(sumaFunc(num1, num2)))
-        elif opcionSeleccionada == '2':
-            print(" La resta es: "+ str(restaFunc(num1, num2)))
-        elif opcionSeleccionada == '3':
-            print(" La multiplicación es: "+ str(multiplicacionFunc(num1, num2))) 
-        elif opcionSeleccionada == '4':
-            print(" La división es: "+ str(divisionFunc(num1, num2))) 
+        if opcion_seleccionada == '1':
+            print(" La suma es: "+ str(suma_func(num1, num2)))
+        elif opcion_seleccionada == '2':
+            print(" La resta es: "+ str(resta_func(num1, num2)))
+        elif opcion_seleccionada == '3':
+            print(" La multiplicación es: "+ str(multiplicacion_func(num1, num2))) 
+        elif opcion_seleccionada == '4':
+            print(" La división es: "+ str(division_func(num1, num2))) 
         else:
             print("Opción no válida.")
 
-        opcionSeleccionada = Menu()
-    print("Adiós, gracias por usar la calculadora")  
+        opcion_seleccionada = menu()
+    print("Adiós, gracias por usar la calculadora")
