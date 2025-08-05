@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reservaciones>
+    <reservacion id="1">
+        <descripcion>Reservación para sala de estudio</descripcion>
+        <dia hora="14" minutos="30">2</dia>
+        <usuarios>
+            <usuario id="IPC2-01">
+                <nombre>María López</nombre>
+                <carrera>Ingeniería en Sistemas</carrera>
+            </usuario>
+            <usuario id="IPC2-05">
+                <nombre>Carlos Hernández</nombre>
+                <carrera>Ingeniería Civil</carrera>
+            </usuario>
+        </usuarios>
+    </reservacion>
+    
+    <reservacion id="2">
+        <descripcion>Reservación para laboratorio de computación</descripcion>
+        <dia hora="7" minutos="0">1</dia>
+        <usuarios>
+            <usuario id="IPC2-02">
+                <nombre>Ana Martínez</nombre>
+                <carrera>Ingeniería Mecánica</carrera>
+            </usuario>
+        </usuarios>
+    </reservacion>
+
+    <reservacion id="3">
+        <descripcion>Reservación para biblioteca</descripcion>
+        <dia hora="15" minutos="0">3</dia>
+        <usuarios>
+            <usuario id="IPC2-03">
+                <nombre>Juan Pérez</nombre>
+                <carrera>Ingeniería Eléctrica</carrera>
+            </usuario>
+            <usuario id="IPC2-06">
+                <nombre>Lucía Gómez</nombre>
+                <carrera>Arquitectura</carrera>
+            </usuario>
+        </usuarios>
+    </reservacion>
+
+    <reservacion id="4">
+        <descripcion>Reservación para sala de reuniones</descripcion>
+        <dia hora="1" minutos="10">1</dia>
+        <usuarios>
+            <usuario id="IPC2-04">
+                <nombre>Pedro Castillo</nombre>
+                <carrera>Administración de Empresas</carrera>
+            </usuario>
+        </usuarios>
+    </reservacion>
+</reservaciones>

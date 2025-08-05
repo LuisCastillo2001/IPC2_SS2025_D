@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<estudiantes>
+	<estudiante carnet="202400001">
+		<nombre>Estudiante 1</nombre>
+		<edad>20</edad>
+	</estudiante>
+	<estudiante carnet="202400002">
+		<nombre>Estudiante 2</nombre>
+		<edad>21</edad>
+	</estudiante>
+	<estudiante carnet="202400003">
+		<nombre>Estudiante 3</nombre>
+		<edad>22</edad>
+	</estudiante>
+</estudiantes>
