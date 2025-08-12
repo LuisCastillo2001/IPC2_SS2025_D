@@ -62,16 +62,17 @@ def leer_reservaciones_parse(ruta):
             for reservacion in root.findall('reservacion'):
                 id = reservacion.get('id', '')
                 descripcion = reservacion.find('descripcion').text 
-                dia_elem = reservacion.find('dia')
+                dia_elem = reservacion.find('dia') 
                 dia = dia_elem.text 
                 hora = dia_elem.get('hora', '') 
+                minutos = dia_elem.get('minutos', '')
                 usuarios = []
                 usuarios_elem = reservacion.find('usuarios')
                 if usuarios_elem is not None:
                     for usuario in usuarios_elem.findall('usuario'):
                         usuario_id = usuario.get('id', '')
-                        nombre = usuario.find('nombre').text if usuario.find('nombre') is not None else ''
-                        carrera = usuario.find('carrera').text if usuario.find('carrera') is not None else ''
+                        nombre = usuario.find('nombre').text 
+                        carrera = usuario.find('carrera').text 
                         usuarios.append({'id': usuario_id, 'nombre': nombre, 'carrera': carrera})
                 print('*'*40)
                 print('ID:', id)
@@ -154,6 +155,8 @@ def escribirConMiniDOM():
         archivo.write(xml_str)
 
 def escribirConET():
+    
+    
     estudiantes = [
         {'carnet': '202400001', 'nombre': 'Estudiante 1', 'edad': '20'},
         {'carnet': '202400002', 'nombre': 'Estudiante 2', 'edad': '21'},
