@@ -2,7 +2,7 @@ from libros import Libro, ListaLibros
 from estanteria import Estanteria, ListaEstanterias
 from sucursales import Sucursal, ListaSucursales
 
-# Creación de libros
+
 libros_1 = ListaLibros()
 libros_1.append(Libro("El Quijote", "Miguel de Cervantes"))
 libros_1.append(Libro("Cien Años de Soledad", "Gabriel García Márquez"))

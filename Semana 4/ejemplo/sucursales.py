@@ -2,6 +2,8 @@ from estanteria import ListaEstanterias
 
 # lista circular de sucursales de bibliotecas
 
+# Una sucursal de biblioteca, tiene varias estanterías
+
 class Sucursal:
     def __init__(self, nombre, direccion, estanterias=None):
         self.nombre = nombre
@@ -16,6 +18,8 @@ class NodoSucursal:
 class ListaSucursales:
     def __init__(self):
         self.primero = None
+        
+        
 
     def append(self, nueva_sucursal):
         nuevo_nodo = NodoSucursal(sucursal=nueva_sucursal)
@@ -26,6 +30,7 @@ class ListaSucursales:
             while aux.siguiente is not None:
                 aux = aux.siguiente
             aux.siguiente = nuevo_nodo
+            nuevo_nodo.siguiente = self.primero  
 
     def mostrar_sucursales(self):
         if self.primero is None:
