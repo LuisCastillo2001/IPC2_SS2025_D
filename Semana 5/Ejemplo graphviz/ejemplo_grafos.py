@@ -40,20 +40,26 @@ class ListaAlumnos:
 
     # Eliminar nodo por carnet
     def eliminar(self, carnet):
+        if self.head is None:
+            print("La lista está vacía, no se puede eliminar.")
+            return
+
         actual = self.head
-        while actual:
+        anterior = None
+
+        while actual is not None:
             if actual.carnet == carnet:
-                if actual.anterior:
-                    actual.anterior.siguiente = actual.siguiente
-                else:
+                if anterior:  # No es el primer nodo
+                    anterior.siguiente = actual.siguiente
+                else:  # Es el primer nodo
                     self.head = actual.siguiente
-                if actual.siguiente:
-                    actual.siguiente.anterior = actual.anterior
                 print(f"Alumno {actual.nombre} {actual.apellido} eliminado.")
-                return True
+                return
+            anterior = actual
             actual = actual.siguiente
-        print("Alumno no encontrado.")
-        return False
+
+        print(f"Alumno con carnet '{carnet}' no encontrado.")
+
 
     # Graficar lista usando Graphviz
     def graficar(self, archivo="lista_alumnos"):

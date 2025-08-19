@@ -44,6 +44,9 @@ digraph G {
 }
 
 ```
+Para generar un grafo usamos el siguiente comando:
+dot -Tpng {nombre del dot}.dot -o {nombre de salida de la imagen}.png
+
 
 # Graphviz y tablas en nodos
 
