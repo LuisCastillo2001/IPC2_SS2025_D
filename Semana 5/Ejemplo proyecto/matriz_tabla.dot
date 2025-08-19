@@ -1,0 +1,15 @@
+digraph G {
+fontname="Helvetica,Arial,sans-serif"
+node [fontname="Helvetica,Arial,sans-serif"]
+edge [fontname="Helvetica,Arial,sans-serif"]
+a0 [shape=none label=<
+<TABLE border="1" cellspacing="0" cellpadding="10">
+<TR><TD></TD><TD bgcolor="lightgray"><B>s1</B></TD><TD bgcolor="lightgray"><B>s2</B></TD><TD bgcolor="lightgray"><B>s3</B></TD></TR>
+<TR><TD bgcolor="lightgray"><B>n1</B></TD><TD bgcolor="yellow" gradientangle="315">200</TD><TD bgcolor="yellow" gradientangle="315">300</TD><TD bgcolor="white" gradientangle="315">0</TD></TR>
+<TR><TD bgcolor="lightgray"><B>n2</B></TD><TD bgcolor="white" gradientangle="315">0</TD><TD bgcolor="white" gradientangle="315">0</TD><TD bgcolor="red" gradientangle="315">6000</TD></TR>
+<TR><TD bgcolor="lightgray"><B>n3</B></TD><TD bgcolor="yellow:orange" gradientangle="315">500</TD><TD bgcolor="red" gradientangle="315">8000</TD><TD bgcolor="white" gradientangle="315">0</TD></TR>
+<TR><TD bgcolor="lightgray"><B>n4</B></TD><TD bgcolor="orange" gradientangle="315">1500</TD><TD bgcolor="white" gradientangle="315">0</TD><TD bgcolor="orange" gradientangle="315">1500</TD></TR>
+<TR><TD bgcolor="lightgray"><B>n5</B></TD><TD bgcolor="white" gradientangle="315">0</TD><TD bgcolor="white" gradientangle="315">0</TD><TD bgcolor="white" gradientangle="315">0</TD></TR>
+<TR><TD bgcolor="lightgray"><B>n6</B></TD><TD bgcolor="white" gradientangle="315">0</TD><TD bgcolor="orange:red" gradientangle="315">3000</TD><TD bgcolor="white" gradientangle="315">0</TD></TR>
+</TABLE>>];
+}
