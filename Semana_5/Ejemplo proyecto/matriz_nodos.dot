@@ -5,7 +5,6 @@ digraph G {
     s1 [label="s1", shape=ellipse, style=filled, fillcolor=lightblue];
     s2 [label="s2", shape=ellipse, style=filled, fillcolor=lightblue];
     s3 [label="s3", shape=ellipse, style=filled, fillcolor=lightblue];
-    s4 [label="s4", shape=ellipse, style=filled, fillcolor=lightblue];
 
     // Cabecera filas (estaciones)
     n1 [label="n1", shape=ellipse, style=filled, fillcolor=lightgreen];
@@ -20,7 +19,6 @@ digraph G {
     n1s1 [label="200"];
     n1s2 [label="300"];
     n1s3 [label="0"];
-    n1s4 [label="0"];
     n2s1 [label="0"];
     n2s2 [label="0"];
     n2s3 [label="6000"];
@@ -41,8 +39,8 @@ digraph G {
     n7s3 [label="0"];
 
     // Alineación en filas
-    {rank=same; vacio s1 s2 s3 s4}
-    {rank=same; n1 n1s1 n1s2 n1s3 n1s4}
+    {rank=same; vacio s1 s2 s3}
+    {rank=same; n1 n1s1 n1s2 n1s3}
     {rank=same; n2 n2s1 n2s2 n2s3}
     {rank=same; n3 n3s1 n3s2 n3s3}
     {rank=same; n4 n4s1 n4s2 n4s3}
@@ -51,21 +49,20 @@ digraph G {
     {rank=same; n7 n7s1 n7s2 n7s3}
 
     // Conexiones horizontales
-    n1 -> n1s1 -> n1s2 -> n1s3 -> n1s4;
+    n1 -> n1s1 -> n1s2 -> n1s3;
     n2 -> n2s1 -> n2s2 -> n2s3;
     n3 -> n3s1 -> n3s2 -> n3s3;
     n4 -> n4s1 -> n4s2 -> n4s3;
     n5 -> n5s1 -> n5s2 -> n5s3;
     n6 -> n6s1 -> n6s2 -> n6s3;
     n7 -> n7s1 -> n7s2 -> n7s3;
-    vacio -> s1 -> s2 -> s3 -> s4 [style=invis];
+    vacio -> s1 -> s2 -> s3 [style=invis];
 
     // Conexiones verticales invisibles para ordenar la matriz
-    vacio -> n1 -> n2 -> n3 -> n4 -> n5 -> n6 -> n7 [style=invis];
+    vacio -> n1 -> n2 -> n3 -> n4 -> n5 -> n6 -> n7 [style=invis ];
     s1 -> n1s1 -> n2s1 -> n3s1 -> n4s1 -> n5s1 -> n6s1 -> n7s1 [style=invis];
-    s2 -> n1s2 -> n2s2 -> n3s2 -> n4s2 -> n5s2 -> n6s2 -> n7s2 [style=invis];
+    s2 -> n1s2 -> n2s2 -> n3s2 -> n4s2 -> n5s2 -> n6s2 -> n7s2 [style=invis ];
     s3 -> n1s3 -> n2s3 -> n3s3 -> n4s3 -> n5s3 -> n6s3 -> n7s3 [style=invis];
-    s4 -> n1s4 -> n2s4 -> n3s4 -> n4s4 -> n5s4 -> n6s4 -> n7s4 [style=invis];
 
     vacio [label="", style=invis, width=0.1];
 }
