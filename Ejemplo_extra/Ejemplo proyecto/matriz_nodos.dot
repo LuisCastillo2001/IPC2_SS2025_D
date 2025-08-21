@@ -1,0 +1,68 @@
+digraph G {
+    node [shape=box, width=1, height=0.6];
+    graph [splines=false, nodesep=0.3, ranksep=0.6];
+
+    s1 [label="s1", shape=ellipse, style=filled, fillcolor=lightblue];
+    s2 [label="s2", shape=ellipse, style=filled, fillcolor=lightblue];
+    s3 [label="s3", shape=ellipse, style=filled, fillcolor=lightblue];
+
+    // Cabecera filas (estaciones)
+    n1 [label="n1", shape=ellipse, style=filled, fillcolor=lightgreen];
+    n2 [label="n2", shape=ellipse, style=filled, fillcolor=lightgreen];
+    n3 [label="n3", shape=ellipse, style=filled, fillcolor=lightgreen];
+    n4 [label="n4", shape=ellipse, style=filled, fillcolor=lightgreen];
+    n5 [label="n5", shape=ellipse, style=filled, fillcolor=lightgreen];
+    n6 [label="n6", shape=ellipse, style=filled, fillcolor=lightgreen];
+    n7 [label="n7", shape=ellipse, style=filled, fillcolor=lightgreen];
+
+    // Matriz (nodo por celda con valor)
+    n1s1 [label="200"];
+    n1s2 [label="300"];
+    n1s3 [label="0"];
+    n2s1 [label="0"];
+    n2s2 [label="0"];
+    n2s3 [label="6000"];
+    n3s1 [label="500"];
+    n3s2 [label="8000"];
+    n3s3 [label="0"];
+    n4s1 [label="1500"];
+    n4s2 [label="0"];
+    n4s3 [label="1500"];
+    n5s1 [label="0"];
+    n5s2 [label="0"];
+    n5s3 [label="0"];
+    n6s1 [label="0"];
+    n6s2 [label="3000"];
+    n6s3 [label="0"];
+    n7s1 [label="1100"];
+    n7s2 [label="9500"];
+    n7s3 [label="0"];
+
+    // Alineación en filas
+    {rank=same; vacio s1 s2 s3}
+    {rank=same; n1 n1s1 n1s2 n1s3}
+    {rank=same; n2 n2s1 n2s2 n2s3}
+    {rank=same; n3 n3s1 n3s2 n3s3}
+    {rank=same; n4 n4s1 n4s2 n4s3}
+    {rank=same; n5 n5s1 n5s2 n5s3}
+    {rank=same; n6 n6s1 n6s2 n6s3}
+    {rank=same; n7 n7s1 n7s2 n7s3}
+
+    // Conexiones horizontales
+    n1 -> n1s1 -> n1s2 -> n1s3;
+    n2 -> n2s1 -> n2s2 -> n2s3;
+    n3 -> n3s1 -> n3s2 -> n3s3;
+    n4 -> n4s1 -> n4s2 -> n4s3;
+    n5 -> n5s1 -> n5s2 -> n5s3;
+    n6 -> n6s1 -> n6s2 -> n6s3;
+    n7 -> n7s1 -> n7s2 -> n7s3;
+    vacio -> s1 -> s2 -> s3 [style=invis];
+
+    // Conexiones verticales invisibles para ordenar la matriz
+    vacio -> n1 -> n2 -> n3 -> n4 -> n5 -> n6 -> n7 [style=invis ];
+    s1 -> n1s1 -> n2s1 -> n3s1 -> n4s1 -> n5s1 -> n6s1 -> n7s1 [style=invis];
+    s2 -> n1s2 -> n2s2 -> n3s2 -> n4s2 -> n5s2 -> n6s2 -> n7s2 [style=invis ];
+    s3 -> n1s3 -> n2s3 -> n3s3 -> n4s3 -> n5s3 -> n6s3 -> n7s3 [style=invis];
+
+    vacio [label="", style=invis, width=0.1];
+}
