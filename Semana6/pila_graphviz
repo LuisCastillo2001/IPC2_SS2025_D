@@ -1,0 +1,11 @@
+// Pila
+digraph {
+	rankdir=TB
+	node [fillcolor=lightblue height=0.5 shape=box style=filled width=1]
+	n0 [label="30
+(top)"]
+	n1 [label=20]
+	n0 -> n1
+	n2 [label=10]
+	n1 -> n2
+}

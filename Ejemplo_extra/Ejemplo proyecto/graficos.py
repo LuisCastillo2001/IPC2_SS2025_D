@@ -1,5 +1,12 @@
 import os
 
+
+def exportar_grafo(filename="prueba.dot"):
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write("digraph G{")
+ 
+
+
 def exportar_graphviz_tabla(estaciones, filename="matriz_tabla.dot"):
     with open(filename, "w", encoding="utf-8") as f:
         f.write('digraph G {\n')
@@ -145,3 +152,9 @@ def generar_imagen_dot(dotfile="matriz.dot", imgfile="matriz.png"):
         print(f"Imagen generada: {imgfile}")
     else:
         print("No se pudo generar la imagen. ¿Está instalado Graphviz y en el PATH?")
+
+
+exportar_grafo()
+
+        
+
