@@ -2,10 +2,12 @@
 digraph {
 	rankdir=TB
 	node [fillcolor=lightblue height=0.5 shape=box style=filled width=1]
-	n0 [label="30
+	n0 [label="40
 (top)"]
-	n1 [label=20]
+	n1 [label=30]
 	n0 -> n1
-	n2 [label=10]
+	n2 [label=20]
 	n1 -> n2
+	n3 [label=10]
+	n2 -> n3
 }
