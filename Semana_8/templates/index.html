@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestor de Tareas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="banner">
+        <img src="https://cdn-icons-png.flaticon.com/512/2919/2919600.png" alt="Banner tareas" class="banner-img">
+        <div class="banner-text">
+            <h1>📋 Gestor de Tareas</h1>
+            <p>Organiza tus pendientes de forma fácil y visual.</p>
+        </div>
+    </div>
+    <div class="container">
+        <h2 class="subtitle">Agregar nueva tarea</h2>
+        <form method="POST" class="task-form flex-row">
+            <input type="text" name="task" class="input-task" placeholder="Escribe tu tarea aquí..." required>
+            <button type="submit" class="add-btn big-btn">
+                <span class="icon-plus">➕</span> Agregar
+            </button>
+        </form>
+        <div class="flex-row center">
+            <a href="{{ url_for('show_tasks') }}" class="show-btn big-btn">Ver todas las tareas</a>
+        </div>
+        <div class="task-list">
+            <h3 class="subtitle">Vista rápida</h3>
+            <ul>
+                {% set has_tasks = false %}
+                {% for task in tasks %}
+                    {% set has_tasks = true %}
+                    <li class="task-preview">
+                        <span class="task-text">
+                            <span class="task-index">{{ loop.index }}.</span>
+                            {{ task.data }}
+                            {% if task.completada %}
+                                <span class="status completed">Completada</span>
+                            {% else %}
+                                <span class="status pending">Pendiente</span>
+                            {% endif %}
+                        </span>
+                    </li>
+                {% endfor %}
+                {% if not has_tasks %}
+                    <li class="empty-preview">No hay tareas pendientes 🎉</li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

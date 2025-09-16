@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2 class="table-title">📋 Tus tareas</h2>
+
+        <div class="flex-row center">
+            <a href="{{ url_for('index') }}" class="back-btn big-btn">Volver al inicio</a>
+        </div>
+
+        <table class="task-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Tarea</th>
+                    <th>Estado</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% set has_tasks = false %}
+                {% for task in tasks %}
+                    {% set has_tasks = true %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ task.data }}</td>
+                        <td>
+                            <form method="POST" action="{{ url_for('toggle', index=loop.index0) }}" class="inline-form">
+                                <button type="submit" class="btn-done" title="Cambiar estado">
+                                    {% if task.completada %}
+                                        ✅ Completada
+                                    {% else %}
+                                        ⬜ Pendiente
+                                    {% endif %}
+                                </button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="POST" action="{{ url_for('delete', index=loop.index0) }}" class="inline-form">
+                                <button type="submit" class="delete-btn-table" title="Eliminar">&#10006;</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+                {% if not has_tasks %}
+                    <tr>
+                        <td colspan="4" class="empty-table">No hay tareas registradas.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+

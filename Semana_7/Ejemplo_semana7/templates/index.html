@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo Flask Completo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Ejemplo  Flask</h1>
+    <h3> {{prueba}} </h3>
+    <h2>Buscar usuario</h2>
+    <form method="POST">
+        <input type="hidden" name="accion" value="buscar">
+        <input type="text" name="nombre" placeholder="Ingrese nombre">
+        <button type="submit">Buscar</button>
+    </form>
+    {% if mensaje %}
+        <p style="color:red">{{ mensaje }}</p>
+    {% endif %}
+    {% if datos_usuario %}
+        <p>Edad: {{ datos_usuario.edad }}, País: {{ datos_usuario.pais }}</p>
+    {% endif %}
+
+    <h2>Agregar usuario a data.txt</h2>
+    <form method="POST">
+        <input type="hidden" name="accion" value="agregar">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="number" name="edad" placeholder="Edad" required min="0">
+        <input type="text" name="pais" placeholder="País" required>
+        <button type="submit">Agregar</button>
+    </form>
+    {% if mensaje_agregar %}
+        <p style="color:green">{{ mensaje_agregar }}</p>
+    {% endif %}
+    {% if error_agregar %}
+        <p style="color:red">{{ error_agregar }}</p>
+    {% endif %}
+
+    <h2>Contenido del fichero data.txt</h2>
+    <ul>
+        {% for nombre, edad, pais in archivo_datos %}
+            <li>{{ nombre }} - {{ edad }} años - {{ pais }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+<script src="ej.js">
+</script>
+</html>
+    <ul>
+        {% for lat, lon in coordenadas %}
+            <li>Lat: {{ lat }}, Lon: {{ lon }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
