@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Productos</title>
+</head>
+<body>
+    <h1>Productos Disponibles</h1>
+    <ul>
+        {% for item in items %}
+            <li>ID: {{ item.id }} - {{ item.name }}: ${{ item.price }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

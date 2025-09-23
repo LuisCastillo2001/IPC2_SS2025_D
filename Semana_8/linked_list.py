@@ -30,6 +30,28 @@ class LinkedList:
             count += 1
         return False
 
+    def delete(self, index):
+        """
+        Elimina el nodo en la posición `index`.
+        Retorna True si se eliminó, False si el índice es inválido.
+        """
+        if not self.head:
+            return False
+        if index == 0:
+            self.head = self.head.next
+            return True
+        prev = None
+        current = self.head
+        count = 0
+        while current and count < index:
+            prev = current
+            current = current.next
+            count += 1
+        if current is None:
+            return False
+        prev.next = current.next
+        return True
+
     def __iter__(self):
         current = self.head
         while current:

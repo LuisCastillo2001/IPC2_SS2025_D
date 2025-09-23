@@ -41,8 +41,8 @@
                             </form>
                         </td>
                         <td>
-                            <form method="POST" action="{{ url_for('delete', index=loop.index0) }}" class="inline-form">
-                                <button type="submit" class="delete-btn-table" title="Eliminar">&#10006;</button>
+                            <form method="POST" action="{{ url_for('delete', index=loop.index0) }}" class="inline-form" onsubmit="return confirm('¿Eliminar esta tarea?');">
+                                <button type="submit" class="delete-btn" title="Eliminar tarea">🗑️ Eliminar</button>
                             </form>
                         </td>
                     </tr>
