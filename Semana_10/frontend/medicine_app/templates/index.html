@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <title>Medicamentos — Frontend</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Enlazar CSS estático -->
+    <link rel="stylesheet" href="{% static 'medicine_app/styles.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Medicamentos</h1>
+            <div style="font-size:0.9rem;color:var(--muted)">XML o JSON</div>
+        </header>
+
+        <div class="card">
+            {% if message %}
+            <div
+                class="message {% if 'Error' in message or 'invalid' in message|lower %}msg-err{% else %}msg-ok{% endif %}">
+                {{ message }}
+            </div>
+            {% endif %}
+            <form action="/submit/" method="post">
+                {% csrf_token %}
+                <div class="row"><label>Id (para get): <input name="id" placeholder="ej: 1"></label></div>
+                <div class="row"><label>Nombre<input name="name" placeholder="Nombre del medicamento"></label></div>
+                <div class="row"><label>Dosis<input name="dose" placeholder="ej: 500mg"></label></div>
+                <div class="row"><label>Stock<input name="stock" placeholder="ej: 100"></label></div>
+
+                <!-- formato: xml o json -->
+                <div class="row">
+                    <label>Formato:
+                        <select name="format">
+                            <option value="xml">XML</option>
+                            <option value="json">JSON</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="row">
+                    <select name="action">
+                        <option value="create">Crear</option>
+                        <option value="get">Obtener por id</option>
+                        <option value="list">Listar todo</option>
+                    </select>
+                    <button class="primary" type="submit">Enviar</button>
+                </div>
+                <div style="font-size:0.85rem;color:var(--muted);">Sugerencia: elegir formato y acción. Delete/update han sido eliminados.</div>
+            </form>
+        </div>
+
+        <div>
+            <div class="card">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+                    <strong style="font-size:1rem">Listado</strong>
+                    <form action="/submit/" method="post" style="margin:0">
+                        {% csrf_token %}
+                        <input type="hidden" name="action" value="list">
+                        <button type="submit" class="primary" style="background:#111827">Refrescar</button>
+                    </form>
+                </div>
+
+                {% if medicines %}
+                <div class="grid-list">
+                    {% for m in medicines %}
+                    <div class="med-card">
+                        <h3>{{ m.name|default:"(sin nombre)" }}</h3>
+                        <p><strong>ID:</strong> {{ m.id|default:"-" }}</p>
+                        <p><strong>Dosis:</strong> {{ m.dose|default:"-" }}</p>
+                        <p><strong>Stock:</strong> {{ m.stock|default:"-" }}</p>
+                        <div class="meta">
+                            <span class="pill">ID: {{ m.id|default:"-" }}</span>
+                            <span class="pill">Dose: {{ m.dose|default:"-" }}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div style="color:var(--muted);">No hay medicinas para mostrar.</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
