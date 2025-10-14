@@ -1,0 +1,16 @@
+{
+    "id": 1,
+    "nombre": "Estudiante IPC",
+    "edad": 18,
+    "inscrito": true,
+    "promedio": 70.5,
+    "hobbies": [
+        "lectura",
+        "programacion",
+        "musica"
+    ],
+    "direccion": {
+        "municipio": "Guatemala",
+        "departamento": "Guatemala"
+    }
+}

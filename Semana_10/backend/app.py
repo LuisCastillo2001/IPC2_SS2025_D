@@ -36,6 +36,9 @@ def list_medicines():
     xml = ET.tostring(root, encoding='utf-8')
     return Response(xml, mimetype='application/xml')
 
+#Ejemplo de peticion post
+# curl -X POST -d '<medicine><name>Paracetamol</name><dose>500mg</dose><stock>100</stock></medicine>' -H "Content-Type: application/xml" http://
+
 @app.route('/medicines/<int:mid>', methods=['GET'])
 def get_medicine(mid):
     med = db.get(mid)
@@ -55,9 +58,10 @@ def create_medicine():
     med_with_id = {'id': next_id}
     med_with_id.update(med)
     next_id += 1
+    print(db)
     return Response(dict_to_xml(med_with_id), status=201, mimetype='application/xml')
 
-# Note: DELETE and PUT removed per request
+
 
 # -------------------------
 # JSON endpoints (/api)
