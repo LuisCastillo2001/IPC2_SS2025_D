@@ -15,12 +15,12 @@ url_api = 'https://jsonplaceholder.typicode.com'
 
 #Solicitud HTTP GET a la API
 try:
-    res = requests.get(f'{url_api}/users')
+    res = requests.get(f'https://my-json-server.typicode.com/typicode/demo/posts')
     print(res, type(res))
 
     if res.status_code == 200:
         empleados = res.json()
-        print(empleados[0])
+        print(empleados)
     else:
         print('No se pudieron obtener los empleados de la API.')
 except requests.exceptions.RequestException as e:
@@ -57,6 +57,8 @@ except requests.exceptions.RequestException as e:
 url_picsum = "https://picsum.photos/800/600"  #Imagen aleatoria de 800x600 píxeles
 try:
     res_imagen = requests.get(url_picsum)
+    print("Contenido de la imagen obtenido")
+    print(res_imagen.content)
     
     if res_imagen.status_code == 200:
         #Descargar la imagen binaria
