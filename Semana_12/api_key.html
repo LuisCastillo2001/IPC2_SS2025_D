@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Consulta de Clima</title>
+</head>
+<body>
+  <h2>Consulta el clima actual</h2>
+
+  <input id="ciudad" placeholder="Ej: Guatemala" />
+  <button onclick="consultar()">Buscar</button>
+
+  <pre id="resultado"></pre>
+
+  <script>
+    async function consultar() {
+      const ciudad = document.getElementById("ciudad").value.trim();
+      const apiKey = "2422e99fb1dacb7808f04e368b45b555";  
+
+      if (!ciudad) {
+        alert("Por favor ingresa una ciudad.");
+        return;
+      }
+
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric&lang=es`;
+
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+
+        if (data.cod === 200) {
+          document.getElementById("resultado").textContent =
+            `Ciudad: ${data.name}\n` +
+            `Temperatura: ${data.main.temp} °C\n` +
+            `Humedad: ${data.main.humidity}%\n` +
+            `Clima: ${data.weather[0].description}`;
+        } else {
+          document.getElementById("resultado").textContent =
+            `Error: ${data.message}`;
+        }
+      } catch (err) {
+        document.getElementById("resultado").textContent = "Error al consultar el clima.";
+      }
+    }
+  </script>
+
+  <!-- Agregado: cliente simple para la API Flask JWT -->
+  <hr />
+  <h2>Demo API JWT (Flask)</h2>
+
+  <div>
+    <input id="jwt-username" placeholder="usuario (ej: admin)" />
+    <input id="jwt-password" type="password" placeholder="contraseña (ej: secret)" />
+    <button onclick="loginApi()">Login (obtener JWT)</button>
+  </div>
+
+  <pre id="jwt-token" style="background:#f0f0f0;padding:8px;"></pre>
+
+  <div>
+    <button onclick="callProtected()">Llamar /protected</button>
+  </div>
+
+  <pre id="jwt-result" style="background:#f8f8f8;padding:8px;"></pre>
+
+  <script>
+  async function loginApi(){
+    const user = document.getElementById('jwt-username').value;
+    const pass = document.getElementById('jwt-password').value;
+    try {
+      const res = await fetch('http://127.0.0.1:5000/login', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({username: user, password: pass})
+      });
+      const data = await res.json();
+      document.getElementById('jwt-token').textContent = res.ok ? data.access_token : JSON.stringify(data);
+    } catch (err) {
+      document.getElementById('jwt-token').textContent = 'Error: ' + err.message;
+    }
+  }
+
+  async function callProtected(){
+    const token = document.getElementById('jwt-token').textContent.trim();
+    try {
+      const res = await fetch('http://127.0.0.1:5000/protected', {
+        headers: { 'Authorization': token ? 'Bearer ' + token : '' }
+      });
+      const data = await res.json();
+      document.getElementById('jwt-result').textContent = JSON.stringify(data, null, 2);
+    } catch (err) {
+      document.getElementById('jwt-result').textContent = 'Error: ' + err.message;
+    }
+  }
+  </script>
+</body>
+</html>
